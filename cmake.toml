@@ -1,0 +1,36 @@
+[project]
+name = "micro"
+languages = ["C", "CXX"]
+
+[target.micro]
+type = "shared"
+
+sources = [
+    "src/*.cpp",
+    "vendor/imgui/**.cpp",
+
+    # "vendor/CppSDK/SDK/Basic.cpp",
+    # "vendor/CppSDK/SDK/CoreUObject_functions.cpp",
+    # "vendor/CppSDK/SDK/Engine_functions.cpp",
+    # "vendor/CppSDK/SDK/ShooterGame_functions.cpp",
+]
+
+include-directories = ["src", "vendor"]
+
+link-libraries = ["d3d12", "shcore", "user32", "dxgi"]
+compile-features = ["cxx_std_14"]
+msvc.compile-options = [
+    "/D_UNICODE",
+    "/DUNICODE",
+    "/O2",
+    "/Ot",
+    "/Oi",
+    "/Gy",
+    "/GL",
+    "/fp:fast",
+    "/favor:INTEL64",
+    "/Zc:inline",
+    "/MT",
+]
+
+msvc.link-options = ["/SUBSYSTEM:WINDOWS", "/LTCG", "/OPT:REF", "/OPT:ICF"]
