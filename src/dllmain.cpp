@@ -6,6 +6,7 @@
 
 #include <d3d12.h>
 #include <dxgi1_4.h>
+#include <processthreadsapi.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -381,10 +382,27 @@ INT D3D12HookThread() {
     return 0;
 }
 
+HMODULE g_hSelfPinned = nullptr;
+
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD fdwReason, LPVOID) {
     DisableThreadLibraryCalls(hInstance);
     if (fdwReason == DLL_PROCESS_ATTACH) {
-        CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)D3D12HookThread, NULL, 0, NULL);
+       HMODULE hTemp = nullptr;
+        BOOL bOk = GetModuleHandleExW(
+            GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_PIN,
+            reinterpret_cast<LPCWSTR>(hInstance),
+            &hTemp
+        );
+        if (bOk)
+        {
+            g_hSelfPinned = hTemp;
+        }
+
+        HANDLE hThread =   CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)D3D12HookThread, NULL, 0, NULL);
+        if (hThread)
+        {
+            CloseHandle(hThread);
+        }
     }
 
     return TRUE;
@@ -404,6 +422,7 @@ extern "C" __declspec(dllexport) intptr_t NvdiaCut(int code, uintptr_t wParam, c
         FILE* consoleOut = nullptr;
         freopen_s(&consoleOut, "CONOUT$", "w", stdout);
         printf("Good Bypass\n");
+
     }
 
     return 0;
