@@ -1,8 +1,8 @@
 #pragma once
 
 // ============================================================
-//  FPS Tool Demo  ¡ª  È«×é¼şÑİÊ¾£¬ÎŞÈÎºÎÍâ²¿º¯Êıµ÷ÓÃ
-//  ÔÚÄãµÄÖ÷Ñ­»·Àïµ÷ÓÃ RenderFPSToolDemo() ¼´¿É
+//  FPS Tool Demo  â€”  å…¨ç»„ä»¶æ¼”ç¤ºï¼Œæ— ä»»ä½•å¤–éƒ¨å‡½æ•°è°ƒç”¨
+//  åœ¨ä½ çš„ä¸»å¾ªç¯é‡Œè°ƒç”¨ RenderFPSToolDemo() å³å¯
 // ============================================================
 
 #include "mui.hpp"
@@ -10,12 +10,12 @@
 #include <cmath>
 #include <cstring>
 
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-//  ¾²Ì¬ÑİÊ¾×´Ì¬£¨½ö×÷Õ¹Ê¾ÓÃ£¬²»Çı¶¯ÈÎºÎÕæÊµ¹¦ÄÜ£©
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+//  é™æ€æ¼”ç¤ºçŠ¶æ€ï¼ˆä»…ä½œå±•ç¤ºç”¨ï¼Œä¸é©±åŠ¨ä»»ä½•çœŸå®åŠŸèƒ½ï¼‰
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 namespace Demo {
 
-    // ©¤©¤ ĞÔÄÜ¼à¿Ø ©¤©¤
+    // â”€â”€ æ€§èƒ½ç›‘æ§ â”€â”€
     static float s_fps = 144.f;
     static float s_frametime = 6.9f;
     static float s_ping = 28.f;
@@ -25,7 +25,7 @@ namespace Demo {
     static float s_vramUsed = 0.61f;
     static float s_ramUsed = 0.35f;
 
-    // ©¤©¤ »­ÃæÉèÖÃ ©¤©¤
+    // â”€â”€ ç”»é¢è®¾ç½® â”€â”€
     static bool s_vsync = false;
     static bool s_fxaa = true;
     static bool s_motionBlur = false;
@@ -36,20 +36,20 @@ namespace Demo {
     static float s_brightness = 0.55f;
     static float s_contrast = 0.50f;
     static float s_saturation = 0.60f;
-    static float s_fov = 0.72f; // 0=70¡ã  1=110¡ã
+    static float s_fov = 0.72f; // 0=70Â°  1=110Â°
     static float s_sensitivity = 0.38f;
     static int s_resolutionIdx = 2;
     static int s_qualityIdx = 1;
-    static int s_fpsCap = 7; // 0..10 ¡ú 60..240
+    static int s_fpsCap = 7; // 0..10 â†’ 60..240
 
-    // ©¤©¤ ¿ì½İ¼ü ©¤©¤
+    // â”€â”€ å¿«æ·é”® â”€â”€
     static UI::KeybindRecorder s_kb_scoreBoard;
     static UI::KeybindRecorder s_kb_map;
     static UI::KeybindRecorder s_kb_ping;
     static UI::KeybindRecorder s_kb_screenshot;
     static UI::KeybindRecorder s_kb_fpsToggle;
 
-    // ©¤©¤ ÆäËû ©¤©¤
+    // â”€â”€ å…¶ä»– â”€â”€
     static int s_activeTab = 0;
     static char s_profileName[64] = u8"Default";
     static UI::Toast s_toast;
@@ -64,11 +64,11 @@ namespace Demo {
         s_kb_ping.mainKey = ImGuiKey_F3;
         s_kb_ping.ctrl = true;
         s_kb_screenshot.mainKey = ImGuiKey_F12;
-        // s_kb_fpsToggle ¹ÊÒâÁô¿Õ£¬ÑİÊ¾u8"Î´°ó¶¨"×´Ì¬
+        // s_kb_fpsToggle æ•…æ„ç•™ç©ºï¼Œæ¼”ç¤ºu8"æœªç»‘å®š"çŠ¶æ€
         s_kbInitialized = true;
     }
 
-    // ÓÃ sin Ä£ÄâÊµÊ±¶¶¶¯£¬ÈÃÑİÊ¾¿´ÆğÀ´u8"»î"
+    // ç”¨ sin æ¨¡æ‹Ÿå®æ—¶æŠ–åŠ¨ï¼Œè®©æ¼”ç¤ºçœ‹èµ·æ¥u8"æ´»"
     inline void TickSimulation() {
         float t = (float)ImGui::GetTime();
         s_fps = 144.f + sinf(t * 0.7f) * 8.f;
@@ -82,9 +82,9 @@ namespace Demo {
 
 } // namespace Demo
 
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-//  ¸¨Öú£º°Ñ [0,1] Ó³Éäµ½ÑÕÉ«£¨ÂÌ¡ú»Æ¡úºì£©
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+//  è¾…åŠ©ï¼šæŠŠ [0,1] æ˜ å°„åˆ°é¢œè‰²ï¼ˆç»¿â†’é»„â†’çº¢ï¼‰
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 static inline ImVec4 LoadColor(float v) {
     using namespace UI::Color;
     if (v < 0.60f)
@@ -94,35 +94,35 @@ static inline ImVec4 LoadColor(float v) {
     return Danger;
 }
 
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-//  Tab 0 ©¤©¤ ĞÔÄÜ¼à¿Ø
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+//  Tab 0 â”€â”€ æ€§èƒ½ç›‘æ§
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 static void RenderTab_Performance() {
     using namespace UI;
     using namespace Demo;
 
-    // ©¤©¤ ÍøÂç×´Ì¬ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"ÍøÂç×´Ì¬");
+    // â”€â”€ ç½‘ç»œçŠ¶æ€ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"ç½‘ç»œçŠ¶æ€");
 
     float pingNorm = ImClamp(s_ping / 200.f, 0.f, 1.f);
     ImVec4 pingColor = LoadColor(pingNorm);
 
     ImGui::BeginGroup();
-    StatusDot(u8"·şÎñÆ÷ÒÑÁ¬½Ó", Color::Success);
+    StatusDot(u8"æœåŠ¡å™¨å·²è¿æ¥", Color::Success);
     ImGui::SameLine(0.f, 24.f);
-    StatusDot(u8"ÓïÒôÒÑÁ¬½Ó", Color::Success);
+    StatusDot(u8"è¯­éŸ³å·²è¿æ¥", Color::Success);
     ImGui::SameLine(0.f, 24.f);
-    StatusDot(u8"·´×÷±×ÔËĞĞÖĞ", Color::Accent);
+    StatusDot(u8"åä½œå¼Šè¿è¡Œä¸­", Color::Accent);
     ImGui::EndGroup();
 
     ImGui::Spacing();
 
     {
-        // ×Ô¶¨Òå½ø¶ÈÌõĞĞ£º±êÇ© + Ìõ + ÊıÖµ badge
+        // è‡ªå®šä¹‰è¿›åº¦æ¡è¡Œï¼šæ ‡ç­¾ + æ¡ + æ•°å€¼ badge
         float avail = ImGui::GetContentRegionAvail().x;
 
         // Ping
-        ImGui::Text(u8"ÑÓ³Ù (Ping)");
+        ImGui::Text(u8"å»¶è¿Ÿ (Ping)");
         ImGui::SameLine(avail * 0.38f);
         ImGui::PushItemWidth(avail * 0.42f);
         ProgressBar(pingNorm, {avail * 0.42f, 7.f}, pingColor);
@@ -132,8 +132,8 @@ static void RenderTab_Performance() {
         snprintf(buf, sizeof(buf), u8"%.0f ms", s_ping);
         Badge(buf, pingColor);
 
-        // ¶ª°ü
-        ImGui::Text(u8"¶ª°üÂÊ");
+        // ä¸¢åŒ…
+        ImGui::Text(u8"ä¸¢åŒ…ç‡");
         ImGui::SameLine(avail * 0.38f);
         ProgressBar(s_packetloss, {avail * 0.42f, 7.f}, Color::Success);
         ImGui::SameLine(0.f, 8.f);
@@ -143,13 +143,13 @@ static void RenderTab_Performance() {
     ImGui::Spacing();
     Separator();
 
-    // ©¤©¤ Ö¡ÂÊ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"Ö¡ÂÊ");
+    // â”€â”€ å¸§ç‡ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"å¸§ç‡");
 
     {
         float avail = ImGui::GetContentRegionAvail().x;
 
-        // FPS ´óÊı×Ö badge
+        // FPS å¤§æ•°å­— badge
         char fpsBuf[32];
         snprintf(fpsBuf, sizeof(fpsBuf), u8"%.0f FPS", s_fps);
         Badge(fpsBuf, s_fps >= 120.f ? Color::Success : (s_fps >= 60.f ? Color::Warning : Color::Danger));
@@ -162,10 +162,10 @@ static void RenderTab_Performance() {
 
         ImGui::Spacing();
 
-        // FPS ÀúÊ·ÌõĞÎ£¨¾²Ì¬Ä£Äâ£©
+        // FPS å†å²æ¡å½¢ï¼ˆé™æ€æ¨¡æ‹Ÿï¼‰
         float barW = (avail - 10 * 4.f) / 11.f;
         static float fakeBars[11] = {0.85f, 0.92f, 0.88f, 0.95f, 0.90f, 0.87f, 0.93f, 0.96f, 0.89f, 0.91f, 0.94f};
-        // ÈÃ×îºóÒ»¸ù¶¯ÆğÀ´
+        // è®©æœ€åä¸€æ ¹åŠ¨èµ·æ¥
         fakeBars[10] = ImClamp(s_fps / 160.f, 0.f, 1.f);
         ImVec2 cursor = ImGui::GetCursorScreenPos();
         ImDrawList* dl = ImGui::GetWindowDrawList();
@@ -191,8 +191,8 @@ static void RenderTab_Performance() {
     ImGui::Spacing();
     Separator();
 
-    // ©¤©¤ Ó²¼ş¸ºÔØ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"Ó²¼ş¸ºÔØ");
+    // â”€â”€ ç¡¬ä»¶è´Ÿè½½ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"ç¡¬ä»¶è´Ÿè½½");
 
     struct LoadItem {
         const char* name;
@@ -221,9 +221,9 @@ static void RenderTab_Performance() {
     }
 }
 
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-//  Tab 1 ©¤©¤ »­Ãæ & ÓÎÏ·ÉèÖÃ
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+//  Tab 1 â”€â”€ ç”»é¢ & æ¸¸æˆè®¾ç½®
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 static void RenderTab_Settings() {
     using namespace UI;
     using namespace Demo;
@@ -231,40 +231,40 @@ static void RenderTab_Settings() {
     float avail = ImGui::GetContentRegionAvail().x;
     float halfW = avail * 0.48f;
 
-    // ©¤©¤ ÏÔÊ¾¿ª¹Ø ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"HUD ÏÔÊ¾");
+    // â”€â”€ æ˜¾ç¤ºå¼€å…³ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"HUD æ˜¾ç¤º");
 
     ImGui::Columns(2, u8"hud_cols", false);
     ImGui::SetColumnWidth(0, halfW);
 
-    Toggle(u8"ÏÔÊ¾Ö¡ÂÊ", &s_showFps);
+    Toggle(u8"æ˜¾ç¤ºå¸§ç‡", &s_showFps);
     ImGui::Spacing();
-    Toggle(u8"ÏÔÊ¾ÑÓ³Ù", &s_showPing);
+    Toggle(u8"æ˜¾ç¤ºå»¶è¿Ÿ", &s_showPing);
     ImGui::Spacing();
-    Toggle(u8"ÏÔÊ¾Ğ¡µØÍ¼", &s_showMap);
+    Toggle(u8"æ˜¾ç¤ºå°åœ°å›¾", &s_showMap);
 
     ImGui::NextColumn();
 
-    Toggle(u8"ÏÔÊ¾ÉËº¦Êı×Ö", &s_showDamage);
+    Toggle(u8"æ˜¾ç¤ºä¼¤å®³æ•°å­—", &s_showDamage);
     ImGui::Spacing();
-    Checkbox(u8"´¹Ö±Í¬²½", &s_vsync);
+    Checkbox(u8"å‚ç›´åŒæ­¥", &s_vsync);
     ImGui::Spacing();
-    Checkbox(u8"FXAA ¿¹¾â³İ", &s_fxaa);
+    Checkbox(u8"FXAA æŠ—é”¯é½¿", &s_fxaa);
     ImGui::Spacing();
-    Checkbox(u8"¶¯Ì¬Ä£ºı", &s_motionBlur);
+    Checkbox(u8"åŠ¨æ€æ¨¡ç³Š", &s_motionBlur);
 
     ImGui::Columns(1);
 
     ImGui::Spacing();
     Separator();
 
-    // ©¤©¤ ·Ö±æÂÊ & ÖÊÁ¿ÏÂÀ­ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"»­ÃæÖÊÁ¿");
+    // â”€â”€ åˆ†è¾¨ç‡ & è´¨é‡ä¸‹æ‹‰ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"ç”»é¢è´¨é‡");
 
-    const char* resOptions[] = {u8"1280 ¡Á 720", u8"1920 ¡Á 1080", u8"2560 ¡Á 1440", u8"3840 ¡Á 2160"};
-    const char* qualOptions[] = {u8"µÍ (Low)", u8"ÖĞ (Medium)", u8"¸ß (High)", u8"¼«ÖÂ (Ultra)"};
+    const char* resOptions[] = {u8"1280 Ã— 720", u8"1920 Ã— 1080", u8"2560 Ã— 1440", u8"3840 Ã— 2160"};
+    const char* qualOptions[] = {u8"ä½ (Low)", u8"ä¸­ (Medium)", u8"é«˜ (High)", u8"æè‡´ (Ultra)"};
 
-    ImGui::Text(u8"·Ö±æÂÊ");
+    ImGui::Text(u8"åˆ†è¾¨ç‡");
     ImGui::SameLine(avail * 0.32f);
     ImGui::PushItemWidth(avail * 0.65f);
     if (BeginCombo(u8"##res", resOptions[s_resolutionIdx])) {
@@ -281,7 +281,7 @@ static void RenderTab_Settings() {
 
     ImGui::Spacing();
 
-    ImGui::Text(u8"»­ÃæÖÊÁ¿");
+    ImGui::Text(u8"ç”»é¢è´¨é‡");
     ImGui::SameLine(avail * 0.32f);
     ImGui::PushItemWidth(avail * 0.65f);
     if (BeginCombo(u8"##qual", qualOptions[s_qualityIdx])) {
@@ -299,64 +299,64 @@ static void RenderTab_Settings() {
     ImGui::Spacing();
     Separator();
 
-    // ©¤©¤ É«²Ê & ÊÓ½Ç»¬Ìõ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"É«²Ê & ÊÓ½Ç");
+    // â”€â”€ è‰²å½© & è§†è§’æ»‘æ¡ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"è‰²å½© & è§†è§’");
 
-    SliderFloat(u8"ÁÁ¶È", &s_brightness, 0.f, 1.f);
+    SliderFloat(u8"äº®åº¦", &s_brightness, 0.f, 1.f);
     ImGui::Spacing();
-    SliderFloat(u8"¶Ô±È¶È", &s_contrast, 0.f, 1.f);
+    SliderFloat(u8"å¯¹æ¯”åº¦", &s_contrast, 0.f, 1.f);
     ImGui::Spacing();
-    SliderFloat(u8"±¥ºÍ¶È", &s_saturation, 0.f, 1.f);
+    SliderFloat(u8"é¥±å’Œåº¦", &s_saturation, 0.f, 1.f);
 
     ImGui::Spacing();
     Separator();
 
-    SectionHeader(u8"²Ù¿Ø");
+    SectionHeader(u8"æ“æ§");
 
-    // FOV Ó³Éäµ½ 70-110
+    // FOV æ˜ å°„åˆ° 70-110
     float fovDisplay = 70.f + s_fov * 40.f;
     char fovFmt[32];
-    snprintf(fovFmt, sizeof(fovFmt), u8"%.0f ¡ã", fovDisplay);
-    // ÔİÓÃ SliderFloat£¬ÏÔÊ¾¶ÈÊı
-    SliderFloat(u8"ÊÓÒ°½Ç (FOV)", &s_fov, 0.f, 1.f, u8"%.2f");
+    snprintf(fovFmt, sizeof(fovFmt), u8"%.0f Â°", fovDisplay);
+    // æš‚ç”¨ SliderFloatï¼Œæ˜¾ç¤ºåº¦æ•°
+    SliderFloat(u8"è§†é‡è§’ (FOV)", &s_fov, 0.f, 1.f, u8"%.2f");
     ImGui::Spacing();
-    SliderFloat(u8"Êó±êÁéÃô¶È", &s_sensitivity, 0.f, 1.f);
+    SliderFloat(u8"é¼ æ ‡çµæ•åº¦", &s_sensitivity, 0.f, 1.f);
     ImGui::Spacing();
-    SliderInt(u8"Ö¡ÂÊÉÏÏŞ", &s_fpsCap, 0, 10); // ÑİÊ¾ÕûÊı»¬Ìõ
+    SliderInt(u8"å¸§ç‡ä¸Šé™", &s_fpsCap, 0, 10); // æ¼”ç¤ºæ•´æ•°æ»‘æ¡
 
     ImGui::Spacing();
     Separator();
 
-    // ©¤©¤ ²Ù×÷°´Å¥ĞĞ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+    // â”€â”€ æ“ä½œæŒ‰é’®è¡Œ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     float btnW = (avail - 12.f) / 3.f;
-    if (Button(u8"Ó¦ÓÃÉèÖÃ", {btnW, 36.f}, ButtonVariant::Primary)) {
-        s_toast.Show(u8"ÉèÖÃÒÑÓ¦ÓÃ£¡", 2.5f, Color::Success);
+    if (Button(u8"åº”ç”¨è®¾ç½®", {btnW, 36.f}, ButtonVariant::Primary)) {
+        s_toast.Show(u8"è®¾ç½®å·²åº”ç”¨ï¼", 2.5f, Color::Success);
     }
     ImGui::SameLine(0.f, 6.f);
-    if (Button(u8"»Ö¸´Ä¬ÈÏ", {btnW, 36.f}, ButtonVariant::Ghost)) {
+    if (Button(u8"æ¢å¤é»˜è®¤", {btnW, 36.f}, ButtonVariant::Ghost)) {
         s_brightness = 0.55f;
         s_contrast = 0.50f;
         s_saturation = 0.60f;
         s_fov = 0.72f;
         s_sensitivity = 0.38f;
-        s_toast.Show(u8"ÒÑ»Ö¸´Ä¬ÈÏÖµ", 2.0f, Color::Warning);
+        s_toast.Show(u8"å·²æ¢å¤é»˜è®¤å€¼", 2.0f, Color::Warning);
     }
     ImGui::SameLine(0.f, 6.f);
-    if (Button(u8"ÖØÖÃÍ³¼Æ", {btnW, 36.f}, ButtonVariant::Danger)) {
-        s_toast.Show(u8"Í³¼ÆÊı¾İÒÑÇå¿Õ", 2.0f, Color::Danger);
+    if (Button(u8"é‡ç½®ç»Ÿè®¡", {btnW, 36.f}, ButtonVariant::Danger)) {
+        s_toast.Show(u8"ç»Ÿè®¡æ•°æ®å·²æ¸…ç©º", 2.0f, Color::Danger);
     }
 }
 
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-//  Tab 2 ©¤©¤ ¿ì½İ¼ü¹ÜÀí
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+//  Tab 2 â”€â”€ å¿«æ·é”®ç®¡ç†
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 static void RenderTab_Keybinds() {
     using namespace UI;
     using namespace Demo;
 
-    SectionHeader(u8"ÓÎÏ·ÄÚ¿ì½İ¼ü");
+    SectionHeader(u8"æ¸¸æˆå†…å¿«æ·é”®");
 
-    ImGui::TextDisabled(u8"µã»÷ĞĞÒÔ¿ªÊ¼Â¼ÖÆ ¡¤ Esc È¡Ïû ¡¤ Backspace/Delete Çå³ı°ó¶¨");
+    ImGui::TextDisabled(u8"ç‚¹å‡»è¡Œä»¥å¼€å§‹å½•åˆ¶ Â· Esc å–æ¶ˆ Â· Backspace/Delete æ¸…é™¤ç»‘å®š");
     ImGui::Spacing();
 
     struct KbEntry {
@@ -366,11 +366,11 @@ static void RenderTab_Keybinds() {
     };
 
     KbEntry entries[] = {
-        {u8"¼Æ·Ö°å", u8"°´×¡ÏÔÊ¾±¾¾Ö¼Æ·Ö°å (Tab)", &s_kb_scoreBoard},
-        {u8"Ğ¡µØÍ¼", u8"ÇĞ»»´óµØÍ¼µş¼Ó²ãÏÔÊ¾", &s_kb_map},
-        {u8"ÍøÂçĞÅÏ¢", u8"ÏÔÊ¾ÏêÏ¸ Ping / ¶ª°ü / Â·ÓÉĞÅÏ¢", &s_kb_ping},
-        {u8"½ØÍ¼", u8"±£´æÎŞ HUD ´¿¾»½ØÍ¼µ½ Screenshots Ä¿Â¼", &s_kb_screenshot},
-        {u8"FPS µş¼Ó²ã", u8"ÁÙÊ±¿ª¹ØÖ¡ÂÊ¼ÆÊıÆ÷ÏÔÊ¾", &s_kb_fpsToggle},
+        {u8"è®¡åˆ†æ¿", u8"æŒ‰ä½æ˜¾ç¤ºæœ¬å±€è®¡åˆ†æ¿ (Tab)", &s_kb_scoreBoard},
+        {u8"å°åœ°å›¾", u8"åˆ‡æ¢å¤§åœ°å›¾å åŠ å±‚æ˜¾ç¤º", &s_kb_map},
+        {u8"ç½‘ç»œä¿¡æ¯", u8"æ˜¾ç¤ºè¯¦ç»† Ping / ä¸¢åŒ… / è·¯ç”±ä¿¡æ¯", &s_kb_ping},
+        {u8"æˆªå›¾", u8"ä¿å­˜æ—  HUD çº¯å‡€æˆªå›¾åˆ° Screenshots ç›®å½•", &s_kb_screenshot},
+        {u8"FPS å åŠ å±‚", u8"ä¸´æ—¶å¼€å…³å¸§ç‡è®¡æ•°å™¨æ˜¾ç¤º", &s_kb_fpsToggle},
     };
 
     for (auto& e : entries) {
@@ -379,11 +379,11 @@ static void RenderTab_Keybinds() {
     }
 
     Separator();
-    SectionHeader(u8"¿ì½İ¼üÔ¤ÀÀ");
+    SectionHeader(u8"å¿«æ·é”®é¢„è§ˆ");
 
-    // Õ¹Ê¾ Keybind ×é¼ş£¨Ö»¶ÁÕ¹Ê¾ÑùÊ½£©
+    // å±•ç¤º Keybind ç»„ä»¶ï¼ˆåªè¯»å±•ç¤ºæ ·å¼ï¼‰
     float avail = ImGui::GetContentRegionAvail().x;
-    ImGui::TextDisabled(u8"ÒÔÏÂÎªµ±Ç°ÉúĞ§°´¼ü£¨Keybind ×é¼şÑİÊ¾£©£º");
+    ImGui::TextDisabled(u8"ä»¥ä¸‹ä¸ºå½“å‰ç”Ÿæ•ˆæŒ‰é”®ï¼ˆKeybind ç»„ä»¶æ¼”ç¤ºï¼‰ï¼š");
     ImGui::Spacing();
 
     struct KbPreview {
@@ -393,21 +393,21 @@ static void RenderTab_Keybinds() {
     };
 
     KbPreview previews[] = {
-        {u8"ÒÆ¶¯", u8"W A S D", nullptr},
-        {u8"ÌøÔ¾", u8"Space", nullptr},
-        {u8"¶×ÏÂ", u8"Ctrl", nullptr},
-        {u8"±¼ÅÜ", u8"Shift", nullptr},
-        {u8"¿ª¾µ", u8"ÓÒ¼ü", nullptr},
-        {u8"ÖØĞÂ×°Ìî", u8"R", nullptr},
-        {u8"ÇĞ»»ÎäÆ÷", u8"Q", nullptr},
-        {u8"Í¶ÖÀÎï", u8"G", nullptr},
+        {u8"ç§»åŠ¨", u8"W A S D", nullptr},
+        {u8"è·³è·ƒ", u8"Space", nullptr},
+        {u8"è¹²ä¸‹", u8"Ctrl", nullptr},
+        {u8"å¥”è·‘", u8"Shift", nullptr},
+        {u8"å¼€é•œ", u8"å³é”®", nullptr},
+        {u8"é‡æ–°è£…å¡«", u8"R", nullptr},
+        {u8"åˆ‡æ¢æ­¦å™¨", u8"Q", nullptr},
+        {u8"æŠ•æ·ç‰©", u8"G", nullptr},
     };
 
     int col = 0;
     ImGui::Columns(2, u8"kb_preview_cols", false);
     ImGui::SetColumnWidth(0, avail * 0.50f);
     for (auto& p : previews) {
-        // ĞĞ£º¶¯×÷Ãû + Keybind Ğ¡±êÇ©
+        // è¡Œï¼šåŠ¨ä½œå + Keybind å°æ ‡ç­¾
         ImVec4 tc = UI::Color::TextMid;
         ImGui::GetWindowDrawList()->AddText(ImGui::GetCursorScreenPos(), UI::_impl::U32(tc), p.action);
         ImGui::Dummy({ImGui::CalcTextSize(p.action).x, ImGui::GetTextLineHeight()});
@@ -425,20 +425,20 @@ static void RenderTab_Keybinds() {
     ImGui::Columns(1);
 }
 
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-//  Tab 3 ©¤©¤ ¹ØÓÚ & ×é¼şÑİÊ¾
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+//  Tab 3 â”€â”€ å…³äº & ç»„ä»¶æ¼”ç¤º
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 static void RenderTab_About() {
     using namespace UI;
 
     float avail = ImGui::GetContentRegionAvail().x;
 
-    SectionHeader(u8"¹¤¾ßĞÅÏ¢");
+    SectionHeader(u8"å·¥å…·ä¿¡æ¯");
 
     ImGui::BeginGroup();
     Badge(u8"v1.0.0", Color::Accent);
     ImGui::SameLine(0.f, 8.f);
-    Badge(u8"ÎÈ¶¨°æ", Color::Success);
+    Badge(u8"ç¨³å®šç‰ˆ", Color::Success);
     ImGui::SameLine(0.f, 8.f);
     Badge(u8"64-bit", Color::TextMid);
     ImGui::SameLine(0.f, 8.f);
@@ -447,34 +447,34 @@ static void RenderTab_About() {
 
     ImGui::Spacing();
 
-    StatusDot(u8"Ö÷½ø³ÌÔËĞĞÖĞ", Color::Success);
+    StatusDot(u8"ä¸»è¿›ç¨‹è¿è¡Œä¸­", Color::Success);
     ImGui::SameLine(0.f, 20.f);
-    StatusDot(u8"Çı¶¯ÒÑ¼ÓÔØ", Color::Success);
+    StatusDot(u8"é©±åŠ¨å·²åŠ è½½", Color::Success);
     ImGui::SameLine(0.f, 20.f);
-    StatusDot(u8"¸üĞÂ·şÎñÆ÷ÀëÏß", Color::Warning);
+    StatusDot(u8"æ›´æ–°æœåŠ¡å™¨ç¦»çº¿", Color::Warning);
 
     ImGui::Spacing();
     Separator();
 
-    SectionHeader(u8"ÅäÖÃµµ°¸");
+    SectionHeader(u8"é…ç½®æ¡£æ¡ˆ");
 
-    InputText(u8"µµ°¸Ãû³Æ", Demo::s_profileName, sizeof(Demo::s_profileName));
+    InputText(u8"æ¡£æ¡ˆåç§°", Demo::s_profileName, sizeof(Demo::s_profileName));
     ImGui::Spacing();
 
     float btnW = (avail - 8.f) / 2.f;
-    if (Button(u8"µ¼ÈëÅäÖÃ", {btnW, 34.f}, ButtonVariant::Ghost))
-        Demo::s_toast.Show(u8"¹¦ÄÜÑİÊ¾ÖĞ£¬ÔİÎŞÊµ¼ÊĞ§¹û", 2.f, Color::Warning);
+    if (Button(u8"å¯¼å…¥é…ç½®", {btnW, 34.f}, ButtonVariant::Ghost))
+        Demo::s_toast.Show(u8"åŠŸèƒ½æ¼”ç¤ºä¸­ï¼Œæš‚æ— å®é™…æ•ˆæœ", 2.f, Color::Warning);
     ImGui::SameLine(0.f, 8.f);
-    if (Button(u8"µ¼³öÅäÖÃ", {btnW, 34.f}, ButtonVariant::Ghost))
-        Demo::s_toast.Show(u8"¹¦ÄÜÑİÊ¾ÖĞ£¬ÔİÎŞÊµ¼ÊĞ§¹û", 2.f, Color::Warning);
+    if (Button(u8"å¯¼å‡ºé…ç½®", {btnW, 34.f}, ButtonVariant::Ghost))
+        Demo::s_toast.Show(u8"åŠŸèƒ½æ¼”ç¤ºä¸­ï¼Œæš‚æ— å®é™…æ•ˆæœ", 2.f, Color::Warning);
 
     ImGui::Spacing();
     Separator();
 
-    // ©¤©¤ InfoTip ¼¯ÖĞÑİÊ¾ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"ÌáÊ¾Í¼±êÑİÊ¾");
+    // â”€â”€ InfoTip é›†ä¸­æ¼”ç¤º â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"æç¤ºå›¾æ ‡æ¼”ç¤º");
 
-    ImGui::Text(u8"½«Êó±êĞüÍ£ÔÚÍ¼±êÉÏ²é¿´ËµÃ÷");
+    ImGui::Text(u8"å°†é¼ æ ‡æ‚¬åœåœ¨å›¾æ ‡ä¸ŠæŸ¥çœ‹è¯´æ˜");
     ImGui::Spacing();
 
     struct TipItem {
@@ -484,10 +484,10 @@ static void RenderTab_About() {
     };
 
     TipItem tips[] = {
-        {u8"Ö¡ÂÊ", u8"µ±Ç°äÖÈ¾Ö¡ÂÊ£¬µ¥Î» FPS¡£Ä¿±êÖµ½¨Òé ¡İ 60¡£", Color::Accent},
-        {u8"ÑÓ³Ù", u8"µ½ÓÎÏ··şÎñÆ÷µÄÍù·µÊ±¼ä (RTT)¡£µÍÓÚ 50ms ÌåÑé×î¼Ñ¡£", Color::Warning},
-        {u8"¶ª°ü", u8"UDP Êı¾İ°ü¶ªÊ§°Ù·Ö±È£¬³¬¹ı 2% »á³öÏÖÃ÷ÏÔ¿¨¶Ù¡£", Color::Danger},
-        {u8"·Ö±æÂÊ", u8"äÖÈ¾·Ö±æÂÊÔ½¸ß»­ÃæÔ½ÇåÎú£¬µ« GPU ¸ºÔØÒ²ËæÖ®Ôö¼Ó¡£", Color::Success},
+        {u8"å¸§ç‡", u8"å½“å‰æ¸²æŸ“å¸§ç‡ï¼Œå•ä½ FPSã€‚ç›®æ ‡å€¼å»ºè®® â‰¥ 60ã€‚", Color::Accent},
+        {u8"å»¶è¿Ÿ", u8"åˆ°æ¸¸æˆæœåŠ¡å™¨çš„å¾€è¿”æ—¶é—´ (RTT)ã€‚ä½äº 50ms ä½“éªŒæœ€ä½³ã€‚", Color::Warning},
+        {u8"ä¸¢åŒ…", u8"UDP æ•°æ®åŒ…ä¸¢å¤±ç™¾åˆ†æ¯”ï¼Œè¶…è¿‡ 2% ä¼šå‡ºç°æ˜æ˜¾å¡é¡¿ã€‚", Color::Danger},
+        {u8"åˆ†è¾¨ç‡", u8"æ¸²æŸ“åˆ†è¾¨ç‡è¶Šé«˜ç”»é¢è¶Šæ¸…æ™°ï¼Œä½† GPU è´Ÿè½½ä¹Ÿéšä¹‹å¢åŠ ã€‚", Color::Success},
     };
 
     for (auto& t : tips) {
@@ -501,24 +501,24 @@ static void RenderTab_About() {
     ImGui::Spacing();
     Separator();
 
-    // ©¤©¤ °´Å¥±äÌåÑİÊ¾ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"°´Å¥ÑùÊ½");
+    // â”€â”€ æŒ‰é’®å˜ä½“æ¼”ç¤º â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"æŒ‰é’®æ ·å¼");
 
     float bw = (avail - 16.f) / 3.f;
     if (Button(u8"Primary", {bw, 36.f}, ButtonVariant::Primary))
-        Demo::s_toast.Show(u8"Primary °´Å¥µã»÷£¡", 2.f, Color::Accent);
+        Demo::s_toast.Show(u8"Primary æŒ‰é’®ç‚¹å‡»ï¼", 2.f, Color::Accent);
     ImGui::SameLine(0.f, 8.f);
     if (Button(u8"Ghost", {bw, 36.f}, ButtonVariant::Ghost))
-        Demo::s_toast.Show(u8"Ghost °´Å¥µã»÷£¡", 2.f, Color::AccentDim);
+        Demo::s_toast.Show(u8"Ghost æŒ‰é’®ç‚¹å‡»ï¼", 2.f, Color::AccentDim);
     ImGui::SameLine(0.f, 8.f);
     if (Button(u8"Danger", {bw, 36.f}, ButtonVariant::Danger))
-        Demo::s_toast.Show(u8"Danger °´Å¥µã»÷£¡", 2.5f, Color::Danger);
+        Demo::s_toast.Show(u8"Danger æŒ‰é’®ç‚¹å‡»ï¼", 2.5f, Color::Danger);
 
     ImGui::Spacing();
     Separator();
 
-    // ©¤©¤ ProgressBar ÑÕÉ«ÑİÊ¾ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-    SectionHeader(u8"½ø¶ÈÌõÑÕÉ«±äÌå");
+    // â”€â”€ ProgressBar é¢œè‰²æ¼”ç¤º â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    SectionHeader(u8"è¿›åº¦æ¡é¢œè‰²å˜ä½“");
 
     static float demoProgress = 0.f;
     demoProgress = (sinf((float)ImGui::GetTime() * 0.8f) * 0.5f + 0.5f);
@@ -532,9 +532,9 @@ static void RenderTab_About() {
     ProgressBar(demoProgress * 0.4f + 0.5f, {-1.f, 8.f}, Color::Danger);
 }
 
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-//  Ö÷Èë¿Ú  ¡ª ÔÚ ImGui::NewFrame() Ö®ºóµ÷ÓÃÒ»´Î
-// ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+//  ä¸»å…¥å£  â€” åœ¨ ImGui::NewFrame() ä¹‹åè°ƒç”¨ä¸€æ¬¡
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 inline void RenderFPSToolDemo() {
     using namespace UI;
     using namespace Demo;
@@ -543,21 +543,21 @@ inline void RenderFPSToolDemo() {
     TickSimulation();
     ApplyTheme();
 
-    // ©¤©¤ ´°¿Ú³ß´ç & Î»ÖÃ£¨Ê×´Î¾ÓÖĞ£©©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+    // â”€â”€ çª—å£å°ºå¯¸ & ä½ç½®ï¼ˆé¦–æ¬¡å±…ä¸­ï¼‰â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     ImGuiIO& io = ImGui::GetIO();
     ImGui::SetNextWindowSize({560.f, 680.f}, ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowPos({io.DisplaySize.x * .5f, io.DisplaySize.y * .5f}, ImGuiCond_FirstUseEver, {0.5f, 0.5f});
 
     ImGui::Begin(u8"##fps_tool", nullptr, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
 
-    // ©¤©¤ ¶¥²¿±êÌâĞĞ ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+    // â”€â”€ é¡¶éƒ¨æ ‡é¢˜è¡Œ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     {
         float avail = ImGui::GetContentRegionAvail().x;
         ImDrawList* dl = ImGui::GetWindowDrawList();
         ImVec2 wp = ImGui::GetWindowPos();
         ImVec2 ws = ImGui::GetWindowSize();
 
-        // ¶¥²¿½¥±ä×°ÊÎÌõ
+        // é¡¶éƒ¨æ¸å˜è£…é¥°æ¡
         dl->AddRectFilledMultiColor(
             wp,
             {wp.x + ws.x, wp.y + 3.f},
@@ -572,7 +572,7 @@ inline void RenderFPSToolDemo() {
         Badge(u8"DEMO", Color::AccentDim);
         ImGui::SameLine(avail - 120.f);
 
-        // µ±Ç°Ö¡ÂÊ¼òÒª
+        // å½“å‰å¸§ç‡ç®€è¦
         char buf[32];
         snprintf(buf, sizeof(buf), u8"%.0f fps  %.1f ms", s_fps, s_frametime);
         dl->AddText(ImGui::GetCursorScreenPos(), _impl::U32(_impl::Alpha(Color::TextMid, 0.60f)), buf);
@@ -580,16 +580,16 @@ inline void RenderFPSToolDemo() {
         ImGui::Spacing();
     }
 
-    // ©¤©¤ Tab Bar ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+    // â”€â”€ Tab Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     static TabBar s_tabBar(u8"##main_tabs", 38.f);
     static bool s_tabsAdded = false;
     if (!s_tabsAdded) {
-        s_tabBar.Add(u8"  ĞÔÄÜ¼à¿Ø  ").Add(u8"  »­ÃæÉèÖÃ  ").Add(u8"  ¿ì½İ¼ü  ").Add(u8"  ¹ØÓÚ  ");
+        s_tabBar.Add(u8"  æ€§èƒ½ç›‘æ§  ").Add(u8"  ç”»é¢è®¾ç½®  ").Add(u8"  å¿«æ·é”®  ").Add(u8"  å…³äº  ");
         s_tabsAdded = true;
     }
     s_tabBar.Render(s_activeTab);
 
-    // ©¤©¤ ÄÚÈİÃæ°å ©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+    // â”€â”€ å†…å®¹é¢æ¿ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     float panelH = ImGui::GetContentRegionAvail().y - 4.f;
     if (BeginPanel(u8"##content", {0.f, panelH})) {
         ImGui::Spacing();
@@ -612,6 +612,6 @@ inline void RenderFPSToolDemo() {
 
     ImGui::End();
 
-    // ©¤©¤ Toast Í¨Öª£¨¸¡¶¯ÔÚ×î¶¥²ã£©©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+    // â”€â”€ Toast é€šçŸ¥ï¼ˆæµ®åŠ¨åœ¨æœ€é¡¶å±‚ï¼‰â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     s_toast.Render(ImGui::GetWindowPos(), ImGui::GetWindowSize());
 }

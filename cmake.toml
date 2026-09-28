@@ -17,11 +17,12 @@ sources = [
 
 include-directories = ["src", "vendor"]
 
-link-libraries = ["d3d12", "shcore", "user32", "dxgi"]
+link-libraries = ["d3d12", "shcore", "user32", "dxgi", "psapi"]
 compile-features = ["cxx_std_14"]
 msvc.compile-options = [
     "/D_UNICODE",
     "/DUNICODE",
+    "/utf-8",
     "/O2",
     "/Ot",
     "/Oi",
