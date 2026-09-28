@@ -329,7 +329,22 @@ HRESULT __fastcall hkPresent(IDXGISwapChain3* SwapChain, UINT SyncInterval, UINT
     return g_Present(SwapChain, SyncInterval, Flags);
 }
 
+// 写入注入成功信号文件（内容为当前进程 PID），注入器据此判定 DLL 已加载并恢复 BE 修改
+void WriteInjectSignal() {
+    char content[32];
+    sprintf_s(content, sizeof(content), "%lu", GetCurrentProcessId());
+    HANDLE hFile = CreateFileA("C:\\best666.txt", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile != INVALID_HANDLE_VALUE) {
+        DWORD written = 0;
+        WriteFile(hFile, content, (DWORD)strlen(content), &written, NULL);
+        CloseHandle(hFile);
+    }
+}
+
 INT D3D12HookThread() {
+    // DLL 已加载，写入信号文件通知注入器
+    WriteInjectSignal();
+
     // 获取 Steam Overlay 渲染模块的基址与大小，作为签名扫描范围
     HMODULE overlayModule = GetModuleHandleW(L"GameOverlayRenderer64.dll");
     if (!overlayModule)
